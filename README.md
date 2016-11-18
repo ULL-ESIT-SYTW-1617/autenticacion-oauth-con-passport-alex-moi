@@ -54,8 +54,10 @@ Posteriormente siga los siguientes pasos:
 
 
 ##Versiones de los paquetes
-* Paquete principal **gitbook-start-alex-moi-nitesh** falta por poner
-* Paquete **gitbook-start-heroku-token-oauth-alex-moi** falta por poner
+* Paquete principal **gitbook-start-alex-moi-nitesh** 
+	**Version: v1.2.56**
+* Paquete **gitbook-start-heroku-token-oauth-alex-moi** 
+**Version: v0.0.12**
 
 ## Enlaces importantes
 
