@@ -49,6 +49,7 @@ passport.deserializeUser(function(obj, done) {
 
 app.set('view engine', 'ejs'); 
 app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/gh-pages'));
 
 
 app.use(logger('combined'));
@@ -60,6 +61,9 @@ app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true 
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+
 
 
 function Organizacion (req, res, next) {
@@ -76,17 +80,12 @@ function Organizacion (req, res, next) {
   });
 }
 
-
-
-app.get('/login',  (req, res) => {
+app.get('/login', (req, res) => {
   if (req.isAuthenticated()) return res.redirect('/')
-  res.render('login')
+  res.render('index')
 })
 
-
-
 app.get('/github', passport.authenticate('github'));
-
 
 
 app.get('/respuesta',
@@ -95,10 +94,9 @@ app.get('/respuesta',
     res.redirect('/');
   });
 
-
-app.get('/invitado', (req, res) => {
-  app.get('/gh-pages',express.static('gh-pages'))
-  res.sendFile(path.join(__dirname, 'gh-pages', 'index.html'));
+//app.use(express.static(__dirname + '/gh-pages'));
+app.get('/invitado', express.static('gh-pages'), (req, res) => {
+  res.sendFile(path.resolve(__dirname,'public','gh-pages','index.html'));
 })
 
 
